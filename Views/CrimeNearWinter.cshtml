@@ -1,0 +1,61 @@
+@page
+@model CrimeNearWinterModel
+@{
+  ViewData["Title"] = "Assaults Near Winter";
+}
+
+<h2>Number of Assaults as winter approaches</h2>  
+
+@{
+   if (@Model.EX != null)
+	 {
+	   <br />
+		 <br />
+		 <h3>**ERROR: @Model.EX.Message</h3>
+		 <br />
+		 <hr />
+		 <br />
+		 <br />
+	 }
+}
+
+<table class="table">  
+    <thead>  
+        <tr>  
+            <th>  
+                Year
+            </th>  
+            <th>  
+                October
+            </th>  
+            <th>  
+                November
+			</th>  
+            <th> 
+				December
+			</th>
+        </tr>  
+    </thead>  
+    <tbody>  
+				
+        @foreach (var item in Model.CrimeList)  
+        {  
+            <tr>   
+                <td>  
+                    @item.Year
+                </td>  
+                <td>  
+                    @item.October
+                </td>  
+                <td>  
+                    @item.November
+				</td>  
+                <td>  
+					@item.December
+                </td>  
+            </tr>  
+						
+					
+        }  
+    </tbody>  
+</table> 

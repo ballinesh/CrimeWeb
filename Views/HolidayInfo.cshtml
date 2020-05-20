@@ -1,0 +1,56 @@
+@page
+@model HolidayInfoModel
+@{
+  ViewData["Title"] = "Holidays";
+}
+
+<h2>Crime rates on important Holidays (2015)</h2>  
+
+@{
+   if (@Model.EX != null)
+	 {
+	   <br />
+		 <br />
+		 <h3>**ERROR: @Model.EX.Message</h3>
+		 <br />
+		 <hr />
+		 <br />
+		 <br />
+	 }
+}
+
+<table class="table">  
+    <thead>  
+        <tr>  
+            <th>  
+                CrimeDate
+            </th>  
+            <th>  
+                NumCrimes
+            </th>  
+            <th>  
+                Avg Difference% (Compared to daily avg of 2015)
+			</th>
+        </tr>  
+    </thead>  
+    <tbody>  
+				
+        @foreach (var item in Model.CrimeList)  
+        {  
+            <tr>   
+                <td>  
+                    @item.CrimeDate
+                </td>  
+                <td>  
+                    @item.NumCrimes
+                </td>  
+                <td>  
+                    @item.CrimePercent
+				
+                </td>  
+            </tr>  
+						
+					
+        }  
+    </tbody>  
+</table> 

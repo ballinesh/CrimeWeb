@@ -1,0 +1,63 @@
+@page
+@model CrimeInfoModel
+@{
+  ViewData["Title"] = "All Crime Info";
+}
+
+<h2>Every Type of Crime</h2>  
+
+@{
+   if (@Model.EX != null)
+	 {
+	   <br />
+		 <br />
+		 <h3>**ERROR: @Model.EX.Message</h3>
+		 <br />
+		 <hr />
+		 <br />
+		 <br />
+	 }
+}
+
+<table class="table">  
+    <thead>  
+        <tr>  
+            <th>  
+                IUCR
+            </th>  
+            <th>  
+                PrimaryDesc
+            </th>  
+            <th>  
+                SecondaryDesc
+            </th>  
+            <th>  
+                NumCrimes 
+			</th>
+        </tr>  
+    </thead>  
+    <tbody>  
+				
+				
+        @foreach (var item in Model.CrimeList)  
+        {  
+            <tr>   
+                <td>  
+                    @item.IUCR
+                </td>  
+                <td>  
+                    @item.PrimaryDesc
+                </td>  
+                <td>  
+                    @item.SecondaryDesc
+                </td>  
+                <td>  
+                    @item.NumCrimes
+				
+                </td>  
+            </tr>  
+						
+					
+        }  
+    </tbody>  
+</table> 
